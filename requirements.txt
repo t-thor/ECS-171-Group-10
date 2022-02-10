@@ -7,3 +7,4 @@ pillow
 librosa
 matplotlib
 tensorflow-cpu
+libsndfile1-dev
