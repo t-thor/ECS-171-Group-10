@@ -26,7 +26,7 @@ This app analyzes a song and classifies it into one of the 10 genres
 """)
 
 col1 = st.sidebar
-col2, col3 = st.beta_columns((2,1))
+col2, col3 = st.columns((2,1))
 
 col1.header('User Input Features')
 
