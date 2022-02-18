@@ -4,7 +4,7 @@ import random
 def wav_split(filename):
     audio = AudioSegment.from_wav(filename)
     if audio.duration_seconds < 30:
-        continue
+        pass
     elif audio.duration_seconds <= 60:
         split_audio = audio
         split_audio.export('output/audio/splitted.wav', format="wav")
