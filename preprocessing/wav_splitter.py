@@ -7,7 +7,7 @@ def wav_split(filename):
         pass
     elif audio.duration_seconds <= 60:
         split_audio = audio
-        split_audio.export('output/audio/splitted.wav', format="wav")
+        split_audio.export('output/audio/splitted{}.wav', format="wav")
     else:
         total_ms = len(audio)
         num_seg = int(total_ms / 30000) 
