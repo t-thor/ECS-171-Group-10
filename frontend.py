@@ -42,7 +42,7 @@ if uploaded_file is not None:
     image = [0, 0, 0]
 
     # generate images from user input
-    for i in range(length(splitted)):
+    for i in range(len(splitted)):
         splitted[i] = audio_path + 'splitted{}.wav'.format(i)
 
         if choice == 'Chroma':
@@ -67,7 +67,7 @@ if uploaded_file is not None:
     elif choice == 'Mel Spectrogram':
             st.subheader('Mel Spectrogram Chart')
 
-    for i in range(length(splitted)):
+    for i in range(len(splitted)):
         st.image(image[i], use_column_width=True)
 
 
@@ -82,7 +82,7 @@ if uploaded_file is not None:
     all_probs = []
     genres = ['blues','classical','country','disco','hiphop','jazz','metal','pop','reggae','rock']
 
-    for i in range(length(splitted)):
+    for i in range(len(splitted)):
         all_probs.append(song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i)))
 
     genre_probabilities = pd.DataFrame(all_probs)
