@@ -38,11 +38,11 @@ choice = col1.selectbox('Chart',('Mel Spectrogram', 'Chroma', 'Tonnetz'))
 if uploaded_file is not None:
 
     wav_splitter.wav_split(uploaded_file)
-    splitted = [0, 0, 0]
-    image = [0, 0, 0]
+    splitted = [0]
+    image = [0]
 
     # generate images from user input
-    for i in range(len('splitted{}.wav')):
+    for i in range(len(splitted)):
         splitted[i] = audio_path + 'splitted{}.wav'.format(i)
 
         if choice == 'Chroma':
