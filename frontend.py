@@ -74,7 +74,7 @@ if uploaded_file is not None:
     ### show audio clips
     st.subheader('Audio Clips')
     st.write("The audio segments we used to perform the classification:")
-    for i in range(3):
+    for i in range(len(splitted)):
         st.audio(splitted[i], format = 'audio/wav')
 
 
