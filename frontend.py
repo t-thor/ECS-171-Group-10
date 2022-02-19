@@ -42,7 +42,7 @@ if uploaded_file is not None:
     image = [0, 0, 0]
 
     # generate images from user input
-    for i in range(len(splitted)):
+    for i in range(len('splitted{}.wav'.format())):
         splitted[i] = audio_path + 'splitted{}.wav'.format(i)
 
         if choice == 'Chroma':
