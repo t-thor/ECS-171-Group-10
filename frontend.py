@@ -26,20 +26,20 @@ This app analyzes a song and classifies it into one of the 10 genres
 """)
 
 col1 = st.sidebar
-col2, col3 = st.columns((2,1))
+col2, col3 = st.beta_columns((2,1))
 
 col1.header('User Input Features')
 
 # Collects user input 
-uploaded_file = col1.file_uploader("Upload your wave file, 30 second minimum", type=["wav"])
+uploaded_file = col1.file_uploader("Upload your wave file", type=["wav"])
 
 choice = col1.selectbox('Chart',('Mel Spectrogram', 'Chroma', 'Tonnetz'))
 
 if uploaded_file is not None:
 
-    #wav_splitter.wav_split(uploaded_file)
-    splitted = [0,0,0]
-    image = [0,0,0]
+    wav_splitter.wav_split(uploaded_file)
+    splitted = [0, 0, 0]
+    image = [0, 0, 0]
 
     # generate images from user input
     for i in range(3):
@@ -67,14 +67,14 @@ if uploaded_file is not None:
     elif choice == 'Mel Spectrogram':
             st.subheader('Mel Spectrogram Chart')
 
-    for i in range(len(splitted)):
+    for i in range(3):
         st.image(image[i], use_column_width=True)
 
 
     ### show audio clips
     st.subheader('Audio Clips')
     st.write("The audio segments we used to perform the classification:")
-    for i in range(len(splitted)):
+    for i in range(3):
         st.audio(splitted[i], format = 'audio/wav')
 
 
@@ -82,11 +82,11 @@ if uploaded_file is not None:
     all_probs = []
     genres = ['blues','classical','country','disco','hiphop','jazz','metal','pop','reggae','rock']
 
-    for i in range(len(splitted)):
+    for i in range(3):
         all_probs.append(song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i)))
 
     genre_probabilities = pd.DataFrame(all_probs)
-    avg_probs = genre_probabilities.sum() / len(splitted)
+    avg_probs = genre_probabilities.sum() / 3
 
     genre_probabilities = pd.DataFrame({
         'genre': genres,
