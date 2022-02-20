@@ -7,13 +7,12 @@ def wav_split(filename):
         pass
     elif audio.duration_seconds <= 60:
         split_audio = audio
-        split_audio.export('output/audio/splitted{}.wav', format="wav")
-    
+        split_audio.export('output/audio/splitted{}.wav', format="wav")  
     else:
         total_ms = len(audio)
         num_seg = int(total_ms / 30000) 
-        if num_seg > 4:     ##temp fix
-            num_seg = 4
+        if num_seg > 3:     ##temp fix
+            num_seg = 3
 
         for i in range(num_seg):
             start = i * 30000 #random.randint(5000, total_ms - 35000) # exclude first 5 seconds and last 5 seconds
