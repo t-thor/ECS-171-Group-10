@@ -57,6 +57,11 @@ if uploaded_file is not None:
             generate_spectrograms.gen_melspectrogram(splitted[i], i)
             image[i] = Image.open(img_path + 'melspec{}.png'.format(i))
 
+        probs = pd.DataFrame(song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i)))
+        samp_genre = probs['probability'].idmax()
+        st.write("The genre of this song is ...", samp_genre, "!")
+
+
     ### show spectrograms to user
     if choice == 'Chroma':
         st.subheader('Chroma Chart')
