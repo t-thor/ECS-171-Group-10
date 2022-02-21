@@ -1,7 +1,7 @@
 from pydub import AudioSegment
 import random
 
-def wav_split(filename, samples):
+def wav_split(filename):
     audio = AudioSegment.from_wav(filename)
 
     for i in range(8):
