@@ -4,7 +4,7 @@ import random
 def wav_split(filename, samples):
     audio = AudioSegment.from_wav(filename)
 
-    for i in range(samples):
+    for i in range(8):
         start = random.randint(5000, total_ms - 35000) # exclude first 5 seconds and last 5 seconds
         end = start + 30000 # take 30 seconds
         split_audio = audio[start:end]
