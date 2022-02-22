@@ -34,15 +34,20 @@ col1.header('User Input Features')
 uploaded_file = col1.file_uploader("Upload your wave file", type=["wav"])
 
 choice = col1.selectbox('Chart',('Mel Spectrogram', 'Chroma', 'Tonnetz'))
+choice2 = col1.selectbox('Sampling Method', ('Beg/Mid/End', 'Quartiles', 'Sample x3(nondeterministic)', 'Random x8(nondeterministic)'))
 
 if uploaded_file is not None:
 
-    wav_splitter.wav_split(uploaded_file, 8)
+    num_samples = 1
+    if choice2 == 'Sample x3(nondeterministic)':
+        num_samples = 3
+     
+    wav_splitter.wav_split(uploaded_file, num_samples)
     splitted = []
     image = []
 
     # generate images from user input
-    for i in range(8):
+    for i in range(num_samples):
         splitted.append( audio_path + 'splitted{}.wav'.format(i) )
 
         if choice == 'Chroma':
@@ -69,7 +74,7 @@ if uploaded_file is not None:
             st.subheader('Mel Spectrogram Chart')
 
     genres = ['blues','classical','country','disco','hiphop','jazz','metal','pop','reggae','rock']
-    for i in range(8):
+    for i in range(num_samples):
         st.image(image[i], use_column_width=True)
         st.audio(splitted[i], format = 'audio/wav')
         probs = song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i))
@@ -80,7 +85,7 @@ if uploaded_file is not None:
     ### show audio clips
     st.subheader('Audio Clips')
     st.write("The audio segments we used to perform the classification:")
-    for i in range(8):
+    for i in range(num_samples):
         st.audio(splitted[i], format = 'audio/wav')
 
 
@@ -88,11 +93,11 @@ if uploaded_file is not None:
     all_probs = []
     genres = ['blues','classical','country','disco','hiphop','jazz','metal','pop','reggae','rock']
 
-    for i in range(8):
+    for i in range(num_samples):
         all_probs.append(song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i)))
 
     genre_probabilities = pd.DataFrame(all_probs)
-    avg_probs = genre_probabilities.sum() / 8
+    avg_probs = genre_probabilities.sum() / num_samples
 
     genre_probabilities = pd.DataFrame({
         'genre': genres,
