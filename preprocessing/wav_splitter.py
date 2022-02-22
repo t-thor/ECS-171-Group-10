@@ -22,6 +22,7 @@ def wav_split(filename, num_samples, method):
         split_audio2.export('output/audio/splitted1.wav', format="wav")
         split_audio3 = audio[total_ms - 20000:total_ms+10000]
         split_audio3.export('output/audio/splitted3.wav', format="wav")
+        print(total_ms)
 
     elif method == 'quart':
         split_audio = audio[(total_ms / 4) - 15000:(total_ms / 4) + 15000]
