@@ -6,6 +6,7 @@ def wav_split(filename, num_samples):
     total_ms = len(audio)
     if num_samples == 1:
         audio.export('output/audio/splitted0.wav', format="wav")
+        
     else:
         for i in range(num_samples):
             start = random.randint(0, total_ms - 30000) # exclude first 5 seconds and last 5 seconds
