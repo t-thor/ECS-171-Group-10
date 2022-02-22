@@ -2,6 +2,14 @@
 
 ## Music Genre Classifier
 
+### Authors
+Jacob Hernandez, John Long, Paulo Magalang, Nicholas Treynor,
+
+Quang Nguyen, Hiroshi Sakakibara, Shiming Tan, Timothy Thorsen, Charissa Tseng,
+
+Leran Chan, Nathan Kim
+
+
 ### Running the App Locally
 
 Clone this repository and run `streamlit run frontend.py`
