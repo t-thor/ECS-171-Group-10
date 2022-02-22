@@ -64,7 +64,7 @@ if uploaded_file is not None:
             image.append( Image.open(img_path + 'melspec{}.png'.format(i)) )
 
 
-    ### show spectrograms to user  
+    ### show clip images and classifications to user  
     if choice == 'Chroma':
         st.subheader('Chroma Chart')
 
@@ -82,7 +82,7 @@ if uploaded_file is not None:
         probs = song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i))
         all_probs.append(probs)
         samp_genre = max(probs, key=probs.get)
-        st.write("*", samp_genre,"*", "* has been to determined to be the most likely genre of this sample clip.")
+        st.write( samp_genre, " has been to determined to be the most likely genre of this sample clip.")
         st.markdown('---')
 
     # determine the song genre
@@ -94,10 +94,14 @@ if uploaded_file is not None:
         'probability': avg_probs
     })
     
+    # show final results
     best_genre = genre_probabilities['probability'].idxmax()
-    st.write("The genre of this song is ...", best_genre, "!")
-
-    # show probabilities
+    st.write("""
+        ## Final analysis:
+        The genre of this song is ...",
+        """, best_genre, "!" )
+        
+   
     c = alt.Chart(genre_probabilities).mark_bar().encode(x = 'genre', y = 'probability')
     st.altair_chart(c, use_container_width=True)
 
