@@ -107,7 +107,7 @@ if uploaded_file is not None:
     best_genre = genre_probabilities['probability'].idxmax()
     st.write("""
         ## Final analysis:
-        The genre of this song is ...",
+        The genre of this song is ...
         """, best_genre, "!" )
         
    
