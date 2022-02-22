@@ -126,7 +126,7 @@ if uploaded_file is not None:
         The genre of this song is ...
         """, best_genre, "!" )
         
-    st.write("# Average genre prediction probability:")
+    st.write("### Average genre prediction probability:")
     c = alt.Chart(genre_probabilities).mark_bar().encode(x = 'genre', y = 'probability')
     st.altair_chart(c, use_container_width=True)
 
