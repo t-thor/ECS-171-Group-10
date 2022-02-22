@@ -81,7 +81,8 @@ if uploaded_file is not None:
         probs = song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i))
         all_probs.append(probs)
         samp_genre = max(probs, key=probs.get)
-        st.write(samp_genre)
+        st.write(samp_genre, " has been to determined to be the most likely genre of this sample clip.")
+        st.markdown('---')
 
     # determine the song genre
     genre_probabilities = pd.DataFrame(all_probs)
