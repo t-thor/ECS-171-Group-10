@@ -77,20 +77,10 @@ if uploaded_file is not None:
     for i in range(num_samples):
         st.image(image[i], use_column_width=True)
         st.audio(splitted[i], format = 'audio/wav')
-        all_probs2 = []
-        all_probs2.append(song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i)))
+        probs = song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i))
 
-        genre_probabilities2 = pd.DataFrame(all_probs2)
-        avg_probs2 = genre_probabilities2.sum() 
-
-        genre_probabilities2 = pd.DataFrame({
-            'genre': genres,
-            'probability': avg_probs
-        })
-        
-        best_genre = genre_probabilities['probability'].idxmax()
-        st.write("The genre of this clip is ...", best_genre, "!")
-
+        #samp_genre = probs.idmax()
+        st.write(probs[0])
 
     # determine the song genre
     all_probs = []
