@@ -45,14 +45,25 @@ choice2 = col1.selectbox('Sampling Method (for full length songs only)',
 if uploaded_file is not None:
 
     num_samples = 1
-    if choice2 == 'Sample x3 (nondeterministic)':
-        num_samples = 3
-    elif choice2 == 'Sample x7 (nondeterministic)':
-        num_samples = 7
-    elif choice2 == 'Sample x15 (nondeterministic)':
-        num_samples = 15
+    if len(AudioSegment.from_wav(uploaded_file)) > 59999:
+        if choice2 == 'Sample x3 (nondeterministic)':
+            num_samples = 3
+            method = 'sampling'
+        elif choice2 == 'Sample x7 (nondeterministic)':
+            num_samples = 7
+            method = 'sampling'
+        elif choice2 == 'Sample x15 (nondeterministic)':
+            num_samples = 15
+            method = 'sampling'
+        elif choice2 == 'Beg/Mid/End':
+            num_samples = 3
+            method = 'BME'
+        else
+            num_samples = 3
+            method = 'quart'
 
-    wav_splitter.wav_split(uploaded_file, num_samples)
+
+    wav_splitter.wav_split(uploaded_file, num_samples, method)
     splitted = []
     image = []
 
