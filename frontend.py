@@ -45,6 +45,7 @@ choice2 = col1.selectbox('Sampling Method (for full length songs only)',
 if uploaded_file is not None:
 
     num_samples = 1
+    method = ''
     if len(AudioSegment.from_wav(uploaded_file)) > 59999:
         if choice2 == 'Sample x3 (nondeterministic)':
             num_samples = 3
