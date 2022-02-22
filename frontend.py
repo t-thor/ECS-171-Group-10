@@ -45,11 +45,11 @@ choice2 = col1.selectbox('Sampling Method (for full length songs only)',
 if uploaded_file is not None:
 
     num_samples = 1
-    if choice2 == 'Sample x3(nondeterministic)':
+    if choice2 == 'Sample x3 (nondeterministic)':
         num_samples = 3
-    elif choice2 == 'Sample x7(nondeterministic)':
+    elif choice2 == 'Sample x7 (nondeterministic)':
         num_samples = 7
-    elif choice2 == 'Sample x15(nondeterministic)':
+    elif choice2 == 'Sample x15 (nondeterministic)':
         num_samples = 15
 
     wav_splitter.wav_split(uploaded_file, num_samples)
