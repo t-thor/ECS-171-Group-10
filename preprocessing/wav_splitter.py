@@ -20,8 +20,8 @@ def wav_split(filename, num_samples, method):
         split_audio.export('output/audio/splitted0.wav', format="wav")
         split_audio2 = audio[(total_ms / 2) - 15000:(total_ms / 2) + 15000]
         split_audio2.export('output/audio/splitted1.wav', format="wav")
-        split_audio3 = audio[total_ms - 20000:total_ms+10000]
-        split_audio3.export('output/audio/splitted3.wav', format="wav")
+        split_audio3 = audio[total_ms - 20000:total_ms]
+        split_audio3.export('output/audio/splitted2.wav', format="wav")
 
     elif method == 'quart':
         split_audio = audio[(total_ms / 4) - 15000:(total_ms / 4) + 15000]
@@ -29,7 +29,7 @@ def wav_split(filename, num_samples, method):
         split_audio2 = audio[(total_ms / 2) - 15000:(total_ms / 2) + 15000]
         split_audio2.export('output/audio/splitted1.wav', format="wav")
         split_audio3 = audio[(total_ms * 3 / 4) - 15000:(total_ms * 3 / 4) + 15000]
-        split_audio3.export('output/audio/splitted3.wav', format="wav")
+        split_audio3.export('output/audio/splitted2.wav', format="wav")
 
 #def to3_split(filename):
 #    audio = AudioSegment.from_wav(filename)
