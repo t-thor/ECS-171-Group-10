@@ -39,8 +39,8 @@ choice2 = col1.selectbox('Sampling Method(for full length songs only)',
     ('Beg/Mid/End',
     'Quartiles',
     'Sample x3(nondeterministic)',
-    'Random x7(nondeterministic)',
-    'Random x15(nondeterministic)'))
+    'Sample x7(nondeterministic)',
+    'Sample x15(nondeterministic)'))
 
 if uploaded_file is not None:
 
@@ -51,8 +51,6 @@ if uploaded_file is not None:
         num_samples = 7
     elif choice2 == 'Sample x15(nondeterministic)':
         num_samples = 15
-
-    st.write(num_samples)
 
     wav_splitter.wav_split(uploaded_file, num_samples)
     splitted = []
