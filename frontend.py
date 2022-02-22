@@ -21,7 +21,7 @@ audio_path = os.path.dirname(__file__) + '/output/audio/'
 
 st.write("""
 # Music Genre Classification
-## ECS171 Group 8 
+## ECS171 Group 8 Final Project
 ## University of California, Davis
 This app analyzes a song and classifies it into one of the 10 genres
 """)
@@ -82,7 +82,7 @@ if uploaded_file is not None:
         probs = song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i))
         all_probs.append(probs)
         samp_genre = max(probs, key=probs.get)
-        st.write("*", samp_genre, "* has been to determined to be the most likely genre of this sample clip.")
+        st.write("*", samp_genre,"*", "* has been to determined to be the most likely genre of this sample clip.")
         st.markdown('---')
 
     # determine the song genre
