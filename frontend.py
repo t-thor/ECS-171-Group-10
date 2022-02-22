@@ -21,6 +21,7 @@ audio_path = os.path.dirname(__file__) + '/output/audio/'
 
 st.write("""
 # Music Genre Classification
+https://github.com/t-thor/ECS-171-Group-10
 ## ECS171 Group 8 Final Project
 ### University of California, Davis
 This app analyzes a song and classifies it into one of ten musical genres. It was trained using the GTZAN dataset, which includes 30 second song clips from a variety of genres which were classified by experts
