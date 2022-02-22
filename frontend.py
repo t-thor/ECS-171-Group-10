@@ -74,18 +74,17 @@ if uploaded_file is not None:
         st.subheader('Mel Spectrogram Chart')
 
     genres = ['blues','classical','country','disco','hiphop','jazz','metal','pop','reggae','rock']
+    all_probs = []
     for i in range(num_samples):
         st.image(image[i], use_column_width=True)
         st.audio(splitted[i], format = 'audio/wav')
         probs = song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i))
+        all_probs.append(probs)
         samp_genre = max(probs, key=probs.get)
         st.write(probs)
         st.write(samp_genre)
 
     # determine the song genre
-    all_probs = []
-    for i in range(num_samples):
-        all_probs.append(song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i)))
 
     genre_probabilities = pd.DataFrame(all_probs)
     avg_probs = genre_probabilities.sum() / num_samples
