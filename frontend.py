@@ -38,24 +38,24 @@ choice = col1.selectbox('Chart',('Mel Spectrogram', 'Chroma', 'Tonnetz'))
 if uploaded_file is not None:
 
     wav_splitter.wav_split(uploaded_file, 8)
-    splitted = [0, 0, 0, 0, 0, 0, 0, 0]
-    image = [0, 0, 0, 0, 0, 0, 0, 0]
+    splitted = []
+    image = []
 
     # generate images from user input
     for i in range(8):
-        splitted[i] = audio_path + 'splitted{}.wav'.format(i)
+        splitted.append( audio_path + 'splitted{}.wav'.format(i) )
 
         if choice == 'Chroma':
             generate_spectrograms.gen_Chroma(splitted[i], i)
-            image[i] = Image.open(img_path + 'chroma{}.png'.format(i))
+            image.append( Image.open(img_path + 'chroma{}.png'.format(i)) )
 
         elif choice == 'Tonnetz':
             generate_spectrograms.gen_Tonnetz(splitted[i], i)
-            image[i] = Image.open(img_path + 'tonnetz{}.png'.format(i))
+            image.append( Image.open(img_path + 'tonnetz{}.png'.format(i)) )
         
         elif choice == 'Mel Spectrogram':
             generate_spectrograms.gen_melspectrogram(splitted[i], i)
-            image[i] = Image.open(img_path + 'melspec{}.png'.format(i))
+            image.append( Image.open(img_path + 'melspec{}.png'.format(i)) )
 
 
     ### show spectrograms to user  
