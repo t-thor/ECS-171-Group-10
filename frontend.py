@@ -78,9 +78,9 @@ if uploaded_file is not None:
         st.image(image[i], use_column_width=True)
         st.audio(splitted[i], format = 'audio/wav')
         probs = song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i))
-
+        pframe = pd.DataFrame.from_dict(probs)
         #samp_genre = probs.idmax()
-        st.write(probs)
+        st.write(pframe)
         st.write(type(probs))
 
     # determine the song genre
