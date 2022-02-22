@@ -24,8 +24,10 @@ st.write("""
 ## ECS171 Group 8 Final Project
 ## University of California, Davis
 This app analyzes a song and classifies it into one of the 10 genres
-It was trained using the GTZAN dataset which includes 30 second song clips from a variety of genres which were classified by experts
+It was trained using the GTZAN dataset, which includes 30 second song clips from a variety of genres which were classified by experts
+
 Because the songlist was assembled in 2002, the model is less accurate when attempting to describe the genre of more recent songs. 
+
 Similarly, the first and last 5 seconds of songs were exluded from training sample selection, so the Beg/Mid/End sampling option will generally produce the least accurate results.
 """)
 
