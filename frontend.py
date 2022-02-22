@@ -34,7 +34,7 @@ col1.header('User Input Features')
 uploaded_file = col1.file_uploader("Upload your wave file", type=["wav"])
 
 choice = col1.selectbox('Chart',('Mel Spectrogram', 'Chroma', 'Tonnetz'))
-choice2 = col1.selectbox('Sampling Method', ('Beg/Mid/End', 'Quartiles', 'Sample x3(nondeterministic)', 'Random x8(nondeterministic)'))
+choice2 = col1.selectbox('Sampling Method(for full length songs only)', ('Beg/Mid/End', 'Quartiles', 'Sample x3(nondeterministic)', 'Random x8(nondeterministic)'))
 
 if uploaded_file is not None:
 
