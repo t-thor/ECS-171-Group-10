@@ -79,7 +79,7 @@ if uploaded_file is not None:
         st.audio(splitted[i], format = 'audio/wav')
         probs = song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i))
         #samp_genre = probs.idmax()
-        st.write("The genre of this clip is ", samp_genre)
+        st.write("The genre of this clip is ", probs)
 
     # determine the song genre
     all_probs = []
