@@ -58,7 +58,7 @@ if uploaded_file is not None:
         elif choice2 == 'Beg/Mid/End':
             num_samples = 3
             method = 'BME'
-        else
+        else:
             num_samples = 3
             method = 'quart'
 
