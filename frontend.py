@@ -78,7 +78,7 @@ if uploaded_file is not None:
         st.image(image[i], use_column_width=True)
         st.audio(splitted[i], format = 'audio/wav')
         probs = song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i))
-        #samp_genre = probs.idmax()
+        samp_genre = max(probs, key=probs.get)
         st.write(probs)
         st.write(type(probs))
 
