@@ -80,10 +80,10 @@ if uploaded_file is not None:
         probs = song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i))
         #samp_genre = probs.idmax()
         temp = pd.DataFrame({
-            'genre': genres,
-            'p': probs
+            'genre': genres#,
+            #'p': probs
         })  
-        st.write("The genre of this clip is ", temp['p'].idmax())
+        st.write(probs)
 
     # determine the song genre
     all_probs = []
