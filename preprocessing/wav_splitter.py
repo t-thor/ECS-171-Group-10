@@ -4,13 +4,15 @@ import random
 def wav_split(filename, num_samples):
     audio = AudioSegment.from_wav(filename)
     total_ms = len(audio)
-
-    for i in range(num_samples):
-        start = random.randint(5000, total_ms - 35000) # exclude first 5 seconds and last 5 seconds
-        end = start + 30000 # take 30 seconds
-        split_audio = audio[start:end]
-        split_audio.export('output/audio/splitted{}.wav'.format(i), format="wav")
-        
+    if num_samples == 1:
+        audio.export('output/audio/splitted0.wav', format="wav")
+    else:
+        for i in range(num_samples):
+            start = random.randint(0, total_ms - 30000) # exclude first 5 seconds and last 5 seconds
+            end = start + 30000 # take 30 seconds
+            split_audio = audio[start:end]
+            split_audio.export('output/audio/splitted{}.wav'.format(i), format="wav")
+            
 #def to3_split(filename):
 #    audio = AudioSegment.from_wav(filename)
 #
