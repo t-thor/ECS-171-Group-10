@@ -81,7 +81,7 @@ if uploaded_file is not None:
         #samp_genre = probs.idmax()
         temp = pd.DataFrame({
             'genre': genres#,
-            #'p': probs
+            'prob': probs
         })  
         st.write(probs)
 
