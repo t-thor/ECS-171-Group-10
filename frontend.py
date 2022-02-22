@@ -50,7 +50,7 @@ if uploaded_file is not None:
 
     num_samples = 1
     method = ''
-    if len(AudioSegment.from_wav(uploaded_file)) > 59999:
+    if len(AudioSegment.from_wav(uploaded_file)) > 119999:
         if choice2 == 'Sample x3 (nondeterministic)':
             num_samples = 3
             method = 'sampling'
