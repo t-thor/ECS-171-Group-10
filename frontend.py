@@ -81,6 +81,7 @@ if uploaded_file is not None:
 
         #samp_genre = probs.idmax()
         st.write(probs)
+        st.write(type(probs))
 
     # determine the song genre
     all_probs = []
