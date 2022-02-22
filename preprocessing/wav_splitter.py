@@ -8,7 +8,7 @@ def wav_split(filename, num_samples, method):
     if num_samples == 1:
         audio.export('output/audio/splitted0.wav', format="wav")
 
-    elif method == 'sampling':    
+    if method == 'sampling':    
         for i in range(num_samples):
             start = random.randint(2500, total_ms - 32500) # exclude first 5 seconds and last 5 seconds
             end = start + 30000 # take 30 seconds
@@ -18,18 +18,19 @@ def wav_split(filename, num_samples, method):
     elif method == 'BME':
         split_audio = audio[0:30000]
         split_audio.export('output/audio/splitted0.wav', format="wav")
-        split_audio = audio[(total_ms / 2) - 15000:(total_ms / 2) + 15000]
-        split_audio.export('output/audio/splitted1.wav', format="wav")
-        split_audio = audio[total_ms - 30000, total_ms]
-        split_audio.export('output/audio/splitted3.wav', format="wav")
+        split_audio2 = audio[(total_ms / 2) - 15000:(total_ms / 2) + 15000]
+        split_audio2.export('output/audio/splitted1.wav', format="wav")
+        split_audio3 = audio[total_ms - 30000, total_ms]
+        split_audio3.export('output/audio/splitted3.wav', format="wav")
 
     elif method == 'quart':
         split_audio = audio[(total_ms / 4) - 15000:(total_ms / 4) + 15000]
         split_audio.export('output/audio/splitted0.wav', format="wav")
-        split_audio = audio[(total_ms / 2) - 15000:(total_ms / 2) + 15000]
-        split_audio.export('output/audio/splitted1.wav', format="wav")
-        split_audio = audio[[(total_ms * 3 / 4) - 15000:(total_ms * 3 / 4) + 15000]
-        split_audio.export('output/audio/splitted3.wav', format="wav")
+        split_audio2 = audio[(total_ms / 2) - 15000:(total_ms / 2) + 15000]
+        split_audio2.export('output/audio/splitted1.wav', format="wav")
+        split_audio3 = audio[[(total_ms * 3 / 4) - 15000:(total_ms * 3 / 4) + 15000]
+        split_audio3.export('output/audio/splitted3.wav', format="wav")
+
 #def to3_split(filename):
 #    audio = AudioSegment.from_wav(filename)
 #
