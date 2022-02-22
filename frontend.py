@@ -35,13 +35,22 @@ col1.header('User Input Features')
 uploaded_file = col1.file_uploader("Upload your wave file", type=["wav"])
 
 choice = col1.selectbox('Chart',('Mel Spectrogram', 'Chroma', 'Tonnetz'))
-choice2 = col1.selectbox('Sampling Method(for full length songs only)', ('Beg/Mid/End', 'Quartiles', 'Sample x3(nondeterministic)', 'Random x8(nondeterministic)'))
+choice2 = col1.selectbox('Sampling Method(for full length songs only)', 
+    ('Beg/Mid/End',
+    'Quartiles',
+    'Sample x3(nondeterministic)',
+    'Random x7(nondeterministic)',
+    'Random x15(nondeterministic)'))
 
 if uploaded_file is not None:
 
     num_samples = 1
     if choice2 == 'Sample x3(nondeterministic)':
         num_samples = 3
+    if choice2 == 'Sample x7(nondeterministic)':
+        num_samples = 7
+    if choice2 == 'Sample x15(nondeterministic)':
+        num_samples = 15
 
     wav_splitter.wav_split(uploaded_file, num_samples)
     splitted = []
