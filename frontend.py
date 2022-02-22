@@ -41,7 +41,7 @@ if uploaded_file is not None:
     num_samples = 1
     if choice2 == 'Sample x3(nondeterministic)':
         num_samples = 3
-     
+
     wav_splitter.wav_split(uploaded_file, num_samples)
     splitted = []
     image = []
@@ -71,7 +71,7 @@ if uploaded_file is not None:
         st.subheader('Tonnetz Chart')
         
     elif choice == 'Mel Spectrogram':
-            st.subheader('Mel Spectrogram Chart')
+        st.subheader('Mel Spectrogram Chart')
 
     genres = ['blues','classical','country','disco','hiphop','jazz','metal','pop','reggae','rock']
     for i in range(num_samples):
@@ -79,15 +79,7 @@ if uploaded_file is not None:
         st.audio(splitted[i], format = 'audio/wav')
         probs = song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i))
         #samp_genre = probs.idmax()
-        #st.write("The genre of this song is ...", samp_genre, "!")
-
-
-    ### show audio clips
-    st.subheader('Audio Clips')
-    st.write("The audio segments we used to perform the classification:")
-    for i in range(num_samples):
-        st.audio(splitted[i], format = 'audio/wav')
-
+        st.write("The genre of this clip is ", samp_genre)
 
     # determine the song genre
     all_probs = []
