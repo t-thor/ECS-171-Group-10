@@ -80,7 +80,7 @@ if uploaded_file is not None:
         probs = song_predict.predict_song_genre(img_path + 'melspec{}.png'.format(i))
         samp_genre = max(probs, key=probs.get)
         st.write(probs)
-        st.write(type(probs))
+        st.write(samp_genre)
 
     # determine the song genre
     all_probs = []
