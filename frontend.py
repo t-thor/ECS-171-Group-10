@@ -22,7 +22,7 @@ audio_path = os.path.dirname(__file__) + '/output/audio/'
 st.write("""
 # Music Genre Classification
 ## ECS171 Group 8 Final Project
-### University of California, Davis
+## University of California, Davis
 This app analyzes a song and classifies it into one of the 10 genres
 """)
 
@@ -43,6 +43,7 @@ choice2 = col1.selectbox('Sampling Method (for full length songs only)',
     'Sample x15 (nondeterministic)'))
 
 if uploaded_file is not None:
+
     num_samples = 1
     if choice2 == 'Sample x3(nondeterministic)':
         num_samples = 3
@@ -52,7 +53,6 @@ if uploaded_file is not None:
         num_samples = 15
 
     wav_splitter.wav_split(uploaded_file, num_samples)
-        
     splitted = []
     image = []
 
